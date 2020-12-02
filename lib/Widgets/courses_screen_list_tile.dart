@@ -113,7 +113,7 @@ class ExpCoursesListItem extends StatelessWidget {
                       ),
                 Text(
                   courseDetail.discountPrice == null
-                      ? "Free"
+                      ? "Free 2"
                       : "${courseDetail.discountPrice} $currency",
                   textAlign: TextAlign.right,
                   style: TextStyle(

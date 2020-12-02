@@ -66,10 +66,11 @@ class _TestimonialListState extends State<TestimonialList> {
             alignment: Alignment.topCenter,
             child: CircleAvatar(
               radius: 30,
-              backgroundImage: testimonials[i].image == null
-                  ? AssetImage("assets/placeholder/avatar.png")
-                  : CachedNetworkImageProvider(
-                      "${APIData.testimonialImages}" + testimonials[i].image),
+              // backgroundImage: testimonials[i].image == null
+              //     ? AssetImage("assets/placeholder/avatar.png")
+              //     : CachedNetworkImageProvider(
+              //         "${APIData.testimonialImages}" + testimonials[i].image),
+              backgroundImage: AssetImage("assets/placeholder/avatar.png"),
             ),
           ),
           SizedBox(
@@ -84,7 +85,7 @@ class _TestimonialListState extends State<TestimonialList> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      testimonials[i].clientName,
+                      testimonials[i].clientName.toString(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -98,7 +99,7 @@ class _TestimonialListState extends State<TestimonialList> {
                       child: Column(
                         children: [
                           Text(
-                            testimonials[i].details,
+                            testimonials[i].details.toString(),
                             textAlign: TextAlign.justify,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -143,9 +144,10 @@ class _TestimonialListState extends State<TestimonialList> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      testimonials[i].updatedAt == null
-                          ? ""
-                          : timeAgo(DateTime.parse(testimonials[i].updatedAt)),
+                      // testimonials[i].updatedAt == null
+                      //     ? ""
+                      //     : timeAgo(DateTime.parse(testimonials[i].updatedAt)
+    "qqq",
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
                       style: TextStyle(
@@ -261,7 +263,8 @@ class _TestimonialListState extends State<TestimonialList> {
             subtitle: Padding(
               padding: EdgeInsets.only(left: 4.0),
               child: Text(
-                date == null ? "" : timeAgo(DateTime.parse(date)),
+                // date == null ? "" : timeAgo(DateTime.parse(date)),
+                "hahaha",
                 style: TextStyle(
                     color: Color(0xFF3F4654).withOpacity(0.7),
                     fontSize: 14),

@@ -28,7 +28,7 @@ class HomeDataProvider with ChangeNotifier {
     generateCategoryList(homeData);
     generateSubCateList(homeData);
     generateChildCateList(homeData);
-    generateMeetingList(homeData.zoomMeeting);
+    // generateMeetingList(homeData.zoomMeeting);
   }
 
   Future<HomeModel> getHomeDetails(context) async {
@@ -161,7 +161,20 @@ class HomeDataProvider with ChangeNotifier {
         catImage:"1606844838proses.png"
       )
     );
+    testimonialList.add(
+      Testimonial(
+          id:1,
+         clientName:"BOniq",
+         details:"<p>Terimakasih bang bos... saya jadi bisa mengoding<\/p>",
+        //  status:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+         image:"1606843923IMG_5559.JPG",
+         createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+      )
+    );
+   
 
+    
     print(res.statusCode);
     if (res.statusCode == 200) {
       // homeModel = HomeModel.fromJson(json.decode(res.body));
@@ -297,11 +310,11 @@ class HomeDataProvider with ChangeNotifier {
        ZoomMeeting(
           id: 1,
           courseId: "1",
-          meetingId: "1",
-          meetingTitle: "test",
-          startTime: DateTime.parse("2020-12-03 20:00:00"),
-          zoomUrl: "https://zoom.com",
-          userId: "udin",
+          meetingId: "95409871417",
+          meetingTitle: "Pelatihan sertifikasi",
+          startTime: DateTime.parse("2020-12-22 06:55:47"),
+          zoomUrl: "https://zoom.us/j/95409871417?pwd=WGQ0Zmw3a0RjT0tUcDladXhXSWVNQT09",
+          userId: "boniw",
           agenda: "Rapat",
           createdAt: DateTime.parse("2020-12-01 20:00:00"),
           updatedAt: DateTime.parse("2020-12-01 20:00:00"),
