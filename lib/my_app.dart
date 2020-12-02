@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         home: token == null ? SignInScreen() : LoadingScreen(token),
+        // home:  SignInScreen(),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Mada'),
         routes: {

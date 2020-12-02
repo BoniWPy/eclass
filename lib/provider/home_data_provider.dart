@@ -34,9 +34,238 @@ class HomeDataProvider with ChangeNotifier {
   Future<HomeModel> getHomeDetails(context) async {
     String url = APIData.home + APIData.secretKey;
     Response res = await get(url);
+    sliderList.add(MySlider(
+                id:1,
+                heading:"Ini SLiders 1",
+                subHeading:"ini subheading",
+                searchText:"0",
+                detail:"ini adalah detail dari detail",
+                status:"1",
+                image:"1606843923IMG_5559.JPG",
+                position:1,
+                createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+                updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+                // "left":1
+        ));
+    sliderFactList.add(
+      SliderFact(
+        id:1,
+        icon:"fa-adn",
+        heading:"headering",
+        subHeading:"sub headering",
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+      )
+    );
+    trustedList.add(
+      Trusted(
+        id:1,
+        url:"https:\/\/contact.boniw.io",
+        image:"1606844011man.png",
+        status:"1",
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+      )
+    );
+    categoryList.add(
+      MyCategory(
+        id:1,
+        title:"programing",
+        icon:"fa-500px",
+        slug:"programing",
+        featured:"1",
+        status:"1",
+        position:1,
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        catImage:"1606844811proses.png"
+      )
+    );
+    categoryList.add(
+      MyCategory(
+        id:2,
+        title:"matematika",
+        icon:"fa-adjust",
+        slug:"matematika",
+        featured:"1",
+        status:"1",
+        position:2,
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        catImage:"1606844838proses.png"
+      )
+    );
+
+    subCategoryList.add(
+      SubCategory(
+        id:1,
+        categoryId:"1",
+        title:"backend",
+        icon:"fa-american-sign-language-interpreting",
+        slug:"backend",
+        status:"1",
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+      )
+    );
+    subCategoryList.add(
+      SubCategory(
+        id:1,
+        categoryId:"2",
+        title:"frontend",
+        icon:"fa-adjust",
+        slug:"frontend",
+        status:"1",
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+      )
+    );
+    childCategoryList.add(
+      ChildCategory(
+        id:1,
+        categoryId:1,
+        subcategoryId:"1",
+        title:"Mari b elajar PHP",
+        icon:"fa-anchor",
+        slug:"mari-b-elajar-php",
+        status:"1",
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+      )
+    );
+    featuredCategoryList.add(
+      MyCategory(
+        id:1,
+        title:"programing",
+        icon:"fa-500px",
+        slug:"programing",
+        featured:"1",
+        status:"1",
+        position:1,
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        catImage:"1606844811proses.png"
+      )
+    );
+    featuredCategoryList.add(
+      MyCategory(
+        id:2,
+        title:"matematika",
+        icon:"fa-adjust",
+        slug:"matematika",
+        featured:"1",
+        status:"1",
+        position:2,
+        createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        catImage:"1606844838proses.png"
+      )
+    );
+
     print(res.statusCode);
     if (res.statusCode == 200) {
-      homeModel = HomeModel.fromJson(json.decode(res.body));
+      // homeModel = HomeModel.fromJson(json.decode(res.body));
+      homeModel= HomeModel(
+        // settings: Settings(
+        //             id:1,
+        //             projectTitle:"eclasss",
+        //             logo:"logo.png",
+        //             favicon:"favicon.png",
+        //             cpyTxt:"Copyright \u00a9 2020 eClass.",
+        //           ),
+        settings: Settings(
+                    id:1,
+                    projectTitle:"eclasss",
+                    logo:"logo.png",
+                    favicon:"favicon.png",
+                    cpyTxt:"Copyright \u00a9 2020 eClass.",
+                    logoType:"L",
+                    rightclick:1,
+                    inspect:1,
+                    metaDataDesc:"test desc",
+                    metaDataKeyword:"test keyword",
+                    googleAna:"null",
+                    fbPixel:"null",
+                    fbLoginEnable:1,
+                    googleLoginEnable:1,
+                    gitlabLoginEnable:1,
+                    stripeEnable:0,
+                    instamojoEnable:0,
+                    paypalEnable:1,
+                    paytmEnable:0,
+                    braintreeEnable:0,
+                    razorpayEnable:0,
+                    paystackEnable:0,
+                    wEmailEnable:1,
+                    verifyEnable:0,
+                    welEmail:"boniw@getnada.com",
+                    defaultAddress:"Comapny 12345 South Main Street Anywhere",
+                    defaultPhone:"9123456789",
+                    instructorEnable:1,
+                    debugEnable:1,
+                    catEnable:0,
+                    featureAmount:null,
+                    preloaderEnable:1,
+                    zoomEnable:1,
+                    amazonEnable:0,
+                    captchaEnable:0,
+                    bblEnable:0,
+                    mapLat:null,
+                    mapLong:null,
+                    mapEnable:"image",
+                    contactImage:null,
+                    mobileEnable:1,
+                    promoEnable:0,
+                    promoText:null,
+                    promoLink:null,
+                    linkedinEnable:0,
+                    mapApi:null,
+                    twitterEnable:0,
+                    awsEnable:0,
+                    certificateEnable:1,
+                    deviceControl:0,
+                    ipblockEnable:0,
+                    ipblock:null,
+                    // "assignment_enable":0,
+                    // "appointment_enable":0,
+                    createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+                    updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+                    // "hide_identity":0,
+                    // "footer_logo":null,
+                    // "enable_omise":0,
+                    // "enable_payu":0,
+                    // "enable_moli":0,
+                    // "enable_cashfree":0,
+                    // "enable_skrill":0,
+                    // "enable_rave":0,
+                    // "preloader_logo":null,
+                    // "chat_bubble":null,
+                    // "wapp_phone":null,
+                    // "wapp_popup_msg":null,
+                    // "wapp_title":null,
+                    // "wapp_position":null,
+                    // "wapp_color":null,
+                    // "wapp_enable":0,
+                    // "enable_payhere":0
+                  ),
+        currency: Currency(
+                    id:1,
+                    icon:"fa fa-inr",
+                    currency:"INR",
+                    currencyDefault:0,
+                    createdAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+                    updatedAt:DateTime.parse("2020-12-02T01:21:44.000000Z"),
+        ),
+        slider: sliderList,
+        sliderfacts: sliderFactList,
+        trusted: trustedList,
+        testimonial: testimonialList,
+        category: categoryList,
+        subcategory: subCategoryList,
+        childcategory: childCategoryList,
+        featuredCate: featuredCategoryList,
+      zoomMeeting: zoomMeetingList
+      );
       generateLists(homeModel);
       for (int i = 0; i < homeModel.category.length; i++) {
         categoryMap[homeModel.category[i].id] = homeModel.category[i].title;
@@ -49,21 +278,38 @@ class HomeDataProvider with ChangeNotifier {
   }
 
   void generateMeetingList(List<ZoomMeeting> zoomMeeting){
-    zoomMeetingList = List.generate(zoomMeeting.length, (index) => ZoomMeeting(
-      id: zoomMeeting[index].id,
-      courseId: zoomMeeting[index].courseId,
-      meetingId: zoomMeeting[index].meetingId,
-      meetingTitle: zoomMeeting[index].meetingTitle,
-      startTime: zoomMeeting[index].startTime,
-      zoomUrl: zoomMeeting[index].zoomUrl,
-      userId: zoomMeeting[index].userId,
-      agenda: zoomMeeting[index].agenda,
-      createdAt: zoomMeeting[index].createdAt,
-      updatedAt: zoomMeeting[index].updatedAt,
-      type: zoomMeeting[index].type,
-      linkBy: zoomMeeting[index].linkBy,
-      ownerId: zoomMeeting[index].ownerId,
-    ));
+    // zoomMeetingList = List.generate(zoomMeeting.length, (index) => ZoomMeeting(
+    //   id: zoomMeeting[index].id,
+    //   courseId: zoomMeeting[index].courseId,
+    //   meetingId: zoomMeeting[index].meetingId,
+    //   meetingTitle: zoomMeeting[index].meetingTitle,
+    //   startTime: zoomMeeting[index].startTime,
+    //   zoomUrl: zoomMeeting[index].zoomUrl,
+    //   userId: zoomMeeting[index].userId,
+    //   agenda: zoomMeeting[index].agenda,
+    //   createdAt: zoomMeeting[index].createdAt,
+    //   updatedAt: zoomMeeting[index].updatedAt,
+    //   type: zoomMeeting[index].type,
+    //   linkBy: zoomMeeting[index].linkBy,
+    //   ownerId: zoomMeeting[index].ownerId,
+    // ));
+     zoomMeetingList.add(
+       ZoomMeeting(
+          id: 1,
+          courseId: "1",
+          meetingId: "1",
+          meetingTitle: "test",
+          startTime: DateTime.parse("2020-12-03 20:00:00"),
+          zoomUrl: "https://zoom.com",
+          userId: "udin",
+          agenda: "Rapat",
+          createdAt: DateTime.parse("2020-12-01 20:00:00"),
+          updatedAt: DateTime.parse("2020-12-01 20:00:00"),
+          type: "UMUM",
+          linkBy: "DidzaCorp",
+          ownerId: "Jack jack",
+        )
+     );
 
   }
 

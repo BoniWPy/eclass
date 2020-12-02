@@ -79,6 +79,7 @@ class HttpService {
   Future<bool> login(String email, String pass, BuildContext context) async {
     http.Response res = await http
         .post(APIData.login, body: {"email": email, "password": pass});
+    print("result login :" +res.body);
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
       authToken = body["access_token"];

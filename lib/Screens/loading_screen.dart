@@ -71,6 +71,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
               pageInd: 0,
             )
           : logoWidget(),
+      // body : MyBottomNavigationBar(
+      //         pageInd: 0,
+      //       )
     );
   }
 }

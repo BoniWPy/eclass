@@ -1,6 +1,6 @@
 class APIData {
   // Replace with your domain link : http://example.com/public/
-  static const String domainLink = "ENTER_YOUR_DOMAIN_URL";
+  static const String domainLink = "https://eclass.boniw.io/";
   static const String domainApiLink = domainLink + "api/";
 
   // API Links
@@ -91,10 +91,10 @@ class APIData {
   static const String categoryImages = domainLink + "images/category/";
 
 //  Constants
-  static const String appName = "ENTER_YOUR_APP_NAME";
-  static const String secretKey = "ENTER_SECRET_KEY";
+  static const String appName = "eclass";
+  static const String secretKey = "f00d2ab1-b2a1-4b81-985f-a7451cdfb1a1";
 
 //  Zoom details
-  static const String zoomAppKey = "ENTER_ZOOM_APP_KEY";
-  static const String zoomSecretKey = "ENTER_ZOOM_SECRET_KEY";
+  static const String zoomAppKey = "Qza9oju9SEyX7M5A2mWrlg";
+  static const String zoomSecretKey = "c66ztDheg7An9LPOy9iSfbWfNBeEz5boGYNf";
 }

@@ -88,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> with TickerProviderStateMix
   }
 
 // Logo on login page
-  Widget logo(String img) {
+  Widget logo() {
     return Container(
       margin: EdgeInsets.only(top: 50.0),
       padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 60.0),
@@ -120,29 +120,58 @@ class _SignInScreenState extends State<SignInScreen> with TickerProviderStateMix
           ),
           color: Colors.white,
           disabledColor: Colors.white.withOpacity(0.5),
-          onPressed: userDetails.getSignInEmail
-              ? () async {
-                  showLoaderDialog(context);
-                  bool login = await httpService.login(
-                      userDetails.getEmail.value,
-                      userDetails.getPass.value,
-                      context);
-                  Navigator.pop(context);
-                  if (login) {
-                    userDetails.destroyLoginValues();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MyBottomNavigationBar(
-                                  pageInd: 0,
-                                )));
-                  } else {
-                    sk.currentState.showSnackBar(SnackBar(
-                        content: Text(
-                            "Request Fail ! Please recheck Your Details!")));
-                  }
-                }
-              : null,
+          // onPressed: userDetails.getSignInEmail
+          //     ? () async {
+          //         showLoaderDialog(context);
+          //         bool login = await httpService.login(
+          //             userDetails.getEmail.value,
+          //             userDetails.getPass.value,
+          //             context);
+          //         Navigator.pop(context);
+          //         if (login) {
+          //           userDetails.destroyLoginValues();
+          //           Navigator.push(
+          //               context,
+          //               MaterialPageRoute(
+          //                   builder: (context) => MyBottomNavigationBar(
+          //                         pageInd: 0,
+          //                       )));
+          //         } else {
+          //           sk.currentState.showSnackBar(SnackBar(
+          //               content: Text(
+          //                   "Request Fail ! Please recheck Your Details!")));
+          //         }
+          //       }
+          //     : null,
+          onPressed: ()async{
+            showLoaderDialog(context);
+            bool login = await httpService.login(
+                userDetails.getEmail.value,
+                userDetails.getPass.value,
+                context);
+            Navigator.pop(context);
+            if (login) {
+              userDetails.destroyLoginValues();
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyBottomNavigationBar(
+                            pageInd: 0,
+                          )));
+            } else {
+              sk.currentState.showSnackBar(SnackBar(
+                  content: Text(
+                      "Request Fail ! Please recheck Your Details!")));
+            }
+
+            // Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => MyBottomNavigationBar(
+            //                 pageInd: 0,
+            //               )));
+
+          },
         ),
       ),
     );
@@ -199,7 +228,7 @@ class _SignInScreenState extends State<SignInScreen> with TickerProviderStateMix
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          logo(homeAPIData.homeModel.settings.logo),
+          logo(),
           SizedBox(
             height: 30,
           ),
@@ -247,7 +276,8 @@ class _SignInScreenState extends State<SignInScreen> with TickerProviderStateMix
             child: Container(
               padding: EdgeInsets.all(25.0),
               child: Text(
-                homeAPIData.homeModel.settings.cpyTxt,
+                "SSS",
+                // homeAPIData.homeModel.settings.cpyTxt,
                 style: TextStyle(
                     fontFamily: "Mada",
                     color: Colors.white.withOpacity(0.5),
@@ -340,37 +370,38 @@ class _SignInScreenState extends State<SignInScreen> with TickerProviderStateMix
     return Scaffold(
       key: sk,
       resizeToAvoidBottomInset: false,
-      body: homeData.homeModel == null
-          ? Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset("assets/images/logo.png"),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircularProgressIndicator(
-                        valueColor:
-                            AlwaysStoppedAnimation<Color>(Color(0xFFF44A4A)),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
-          : scaffoldView(width, homeData),
+      // body: homeData.homeModel == null
+      //     ? Container(
+      //         child: Column(
+      //           crossAxisAlignment: CrossAxisAlignment.center,
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           mainAxisSize: MainAxisSize.max,
+      //           children: [
+      //             Row(
+      //               crossAxisAlignment: CrossAxisAlignment.center,
+      //               mainAxisAlignment: MainAxisAlignment.center,
+      //               children: [
+      //                 Image.asset("assets/images/logo.png"),
+      //               ],
+      //             ),
+      //             SizedBox(
+      //               height: 20,
+      //             ),
+      //             Row(
+      //               crossAxisAlignment: CrossAxisAlignment.center,
+      //               mainAxisAlignment: MainAxisAlignment.center,
+      //               children: [
+      //                 CircularProgressIndicator(
+      //                   valueColor:
+      //                       AlwaysStoppedAnimation<Color>(Color(0xFFF44A4A)),
+      //                 ),
+      //               ],
+      //             )
+      //           ],
+      //         ),
+      //       )
+      //     : scaffoldView(width, homeData),
+      body: scaffoldView(width, homeData)
     );
   }
 }
